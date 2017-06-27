@@ -17,8 +17,6 @@ class CategoryTreeTest extends TestCase
     public function a_category_has_a_name()
     {
         $this->category_tree->addCategory('music', 'sound');
-
-
         $this->assertEquals('music', $this->category_tree->tree[0]['category']);
     }
 
@@ -26,17 +24,7 @@ class CategoryTreeTest extends TestCase
     public function a_category_has_a_parent()
     {
         $this->category_tree->addCategory('music', 'sound');
-        
         $this->assertEquals('sound', $this->category_tree->tree[0]['parent']);
-
-    }
-
-    /** @test */
-    public function a_category_has_a_null_parent_if_root()
-    {
-        $this->category_tree->addCategory('music', null);
-        
-        $this->assertTrue($this->category_tree->tree['music'] == null);
     }
 
     /** 
@@ -70,8 +58,6 @@ class CategoryTreeTest extends TestCase
 
         $this->assertEquals(['rock','classical'], $children );
     }
-
-
     
 }
 
